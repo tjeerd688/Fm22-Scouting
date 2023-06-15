@@ -11,4 +11,4 @@ df = df.sort_values('Gls', ascending=False)
 
 @app.get("/")
 async def root():
-    return(df[['Name','Club','Gls']])
+    return(df[['Name','Club','Gls','xG']])
