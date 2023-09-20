@@ -1,9 +1,17 @@
+from typing import Union
+from fastapi.responses import JSONResponse
 from fastapi import FastAPI
-import random
+import json
 
 app = FastAPI()
 
 @app.get("/")
-async def root():
-    return{'example': 'dit is een voorbeeld', 'data': 0}
-    
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/data")
+def Data():
+
+    file=open('Json_exports\data_filtered.json')
+    return json.load(file)
