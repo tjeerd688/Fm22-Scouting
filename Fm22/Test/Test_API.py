@@ -1,8 +1,5 @@
-from typing import Union
-from fastapi.responses import JSONResponse
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import json
 
 app = FastAPI()
 
@@ -21,9 +18,6 @@ app.add_middleware(
 )
 
 
-
-@app.get("/data")
-def Data():
-
-    file=open('Json_exports\data_filtered.json')
-    return json.load(file)
+@app.get("/")
+async def main():
+    return {"message": "Hello World"}
