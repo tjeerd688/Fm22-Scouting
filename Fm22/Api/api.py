@@ -13,5 +13,6 @@ def read_root():
 @app.get("/data")
 def Data():
 
-    file=open('Json_exports\data_filtered.json',)
+    file=open('data.json',"r")
+
     return json.load(file)
