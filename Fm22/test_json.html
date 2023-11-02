@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="test_json.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <br />
+    <br />
+
+    <div id="fileSelectorContainer">
+      <input
+        type="file"
+        id="uploadbtn"
+        accept="*"
+        onchange="handleFileSelect(event)"
+      />
+      <label for="uploadbtn">Upload JSON File</label>
+    </div>
+    <div id="uploadNotice">File uploaded successfully!</div>
+
+    <div id="container"></div>
+
+    <script src="test_json.js"></script>
+  </body>
+</html>

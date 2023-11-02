@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif; /* Use Quicksand font for the body text */
+  background-color: #f5f5f5; /* Light gray background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the body takes up at least the viewport height */
+  font-family: "Roboto", sans-serif; /* Use Roboto font for the body text */
+}
+
+h2 {
+  text-align: center; /* Center the heading */
+  color: #6c6161; /* Dark gray text color */
+  font-family: "Pacifico", cursive; /* Use Pacifico font for h2 and #container */
+}
+#container {
+  background-color: #ffffff; /* White background for the container */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  font-family: "Roboto", sans-serif; /* Use Roboto font for h2 and #container */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style every other table row (odd rows) with a slight color change */
+table tr:nth-child(odd) {
+  background-color: #f0f0f0; /* Light gray background for odd rows */
+}
+/* Style the first row (index row) with light green background */
+table tr:first-child th {
+  background-color: #ef1ec1; /* Light green background for the header row */
+}
+
+#fileSelectorContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#uploadbtn {
+  display: none; /* Hide the input element */
+  color: #333;
+}
+
+label {
+  cursor: pointer; /* Make the label look like a clickable button */
+  padding: 5px 10px;
+  background-color: #ef1ec1;
+  color: #fff;
+  border-radius: 5px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+}
+
+#uploadNotice {
+  display: none; /* Initially hide the upload notice */
+  position: absolute;
+  top: 50px; /* Position the notice below the button */
+  right: 10px;
+  background-color: #ec10bc;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+}
+
+#container {
+  min-height: 300px; /* Adjust the minimum height as needed */
+}
