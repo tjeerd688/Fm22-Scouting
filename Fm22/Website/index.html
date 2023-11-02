@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- externe bestanden en fonts-->
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
@@ -16,23 +17,26 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <br />
     <br />
-
+    <!--container voor de file input knop-->
     <div id="fileSelectorContainer">
       <input
         type="file"
         id="uploadbtn"
-        accept="*"
+        accept=".csv"
         onchange="handleFileSelect(event)"
       />
-      <label for="uploadbtn">Upload JSON File</label>
+      <label for="uploadbtn">Upload CSV File</label>
     </div>
-    <div id="uploadNotice">File uploaded successfully!</div>
+    <!--div's voor het weergeven of het uploaden is gelukt of niet-->
+    <div id="uploadNotice" class="notice upload-notice">
+      File uploaded successfully
+    </div>
     <div id="errorNotice" class="notice error-notice">
-      Invalid file type. Please select a JSON file.
+      Invalid file type. Please select a CSV file.
     </div>
-
+    <!--container voor de tabel-->
     <div id="container"></div>
-
+    <!--js code include-->
     <script src="script.js"></script>
   </body>
 </html>
