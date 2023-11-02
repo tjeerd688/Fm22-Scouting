@@ -17,6 +17,7 @@ df = df.sort_values(['Dlp','xG'], ascending=[False,False])
 #Naam,Club,Dlp en xG eruit filteren
 df = df[['Naam','Club','Dlp','xG']]
 #de gemanipuleerde dataframe omzetten naar een json bestand en opslaan in een export map
-df.to_json(r'C:\Users\tjeer\Documents\Fm22 Scouting\Fm22\Main Script\Json_exports/DataFiltered.json',orient='index')
+#df.to_json(r'C:\Users\tjeer\Documents\Fm22 Scouting\Fm22\Main Script\Json_exports/DataFiltered.json',orient='index')
+df.to_json(r'Fm22\Exports/DataFiltered.json',orient='index')
 #Bericht dat het filteren en exporteren is gelukt
 print("Data gefilterd en geëxporteerd")

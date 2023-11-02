@@ -3,6 +3,7 @@ from typing import Union
 from fastapi.responses import JSONResponse
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pathlib import Path  
 import json
 
 #app defineren
@@ -30,8 +31,10 @@ def read_root():
 @app.get("/data")
 #met de api request word deze functie uitgevoerd waar de json wordt opgestuurd
 def Data():
-    
-    file=open(r'C:\Users\tjeer\Documents\Fm22 Scouting\Fm22\Main Script\Json_exports\DataFiltered.json',"r")
+    #path om het gefilterde json bestand te pakken
+    file_path = Path("..") / "Main Script" / "Json_exports" / "DataFiltered.json"
+    #json returnen
+    with file_path.open("r") as file:
+        return json.load(file)
 
-    return json.load(file)
 
