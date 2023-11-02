@@ -8,6 +8,9 @@ body {
   min-height: 100vh; /* Ensure the body takes up at least the viewport height */
   font-family: "Roboto", sans-serif; /* Use Roboto font for the body text */
 }
+#container table th:nth-child(3) {
+  cursor: pointer;
+}
 
 h2 {
   text-align: center; /* Center the heading */
@@ -83,4 +86,17 @@ label {
 
 #container {
   min-height: 300px; /* Adjust the minimum height as needed */
+}
+.notice {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+.error-notice {
+  background-color: #f90000; /* Red background for error notice */
+  color: #333;
 }

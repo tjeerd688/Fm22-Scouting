@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="test_json.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
       rel="stylesheet"
@@ -27,9 +27,12 @@
       <label for="uploadbtn">Upload JSON File</label>
     </div>
     <div id="uploadNotice">File uploaded successfully!</div>
+    <div id="errorNotice" class="notice error-notice">
+      Invalid file type. Please select a JSON file.
+    </div>
 
     <div id="container"></div>
 
-    <script src="test_json.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

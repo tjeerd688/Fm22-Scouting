@@ -128,6 +128,14 @@ function handleFileSelect(event) {
     const file = event.target.files[0];
 
     if (file) {
+        // Check if the file type is valid (in this example, only .json files are accepted)
+        if (file.type !== 'application/json') {
+            // Display an error message
+            const errorNotice = document.getElementById('errorNotice');
+            errorNotice.style.display = 'block';
+            return;
+        }
+
         const reader = new FileReader();
 
         reader.onload = function (e) {
@@ -153,4 +161,3 @@ function handleFileSelect(event) {
         reader.readAsText(file);
     }
 }
-
