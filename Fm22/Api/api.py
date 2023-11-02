@@ -36,3 +36,10 @@ def Data():
     file=open('data.json',"r")
 
     return json.load(file)
+
+@app.get("/test")
+def Data():
+
+    file=open(r'C:\Users\tjeer\Documents\Fm22 Scouting\Fm22\Main Script\Json_exports\test.json',"r")
+
+    return json.load(file)
