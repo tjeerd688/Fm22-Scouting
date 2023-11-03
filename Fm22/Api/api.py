@@ -22,7 +22,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-#test response via on aangepaste http
+#test response via onaangepaste http
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
@@ -32,7 +32,7 @@ def read_root():
 #met de api request word deze functie uitgevoerd waar de json wordt opgestuurd
 def Data():
     #path om het gefilterde json bestand te pakken
-    file_path = Path("..") / "Main Script" / "Json_exports" / "DataFiltered.json"
+    file_path = Path("..") / "Exports" / "DataFiltered.json"
     #json returnen
     with file_path.open("r") as file:
         return json.load(file)
