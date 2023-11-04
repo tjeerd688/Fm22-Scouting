@@ -135,52 +135,65 @@ function updateSortIndicator(header, sortOrder) {
 getplayers().then(data => {
     generateTable(data);
 });
+const fileInput = document.getElementById('uploadbtn'); // Select the correct element by ID
 
-//regelt het uploaden van de CSV op de website
+fileInput.addEventListener('change', handleFileSelect);
+
+
+document.getElementById('uploadbtn').addEventListener('change', handleFileSelect);
+
+//const fileInput = document.getElementById('uploadbtn');
+
+fileInput.addEventListener('change', handleFileSelect);
+
 function handleFileSelect(event) {
     const file = event.target.files[0];
 
     if (file) {
-        // controleerd of het bestandstype een csv is
+        // Handle the file selection and processing here
         if (file.type !== 'text/csv') {
-            // error als het geen csv is
-            const errorNotice = document.getElementById('errorNotice');
-            errorNotice.style.display = 'block';
+            // Handle the file type error as you were doing before
+            // ...
+        } else {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const uploadNotice = document.getElementById('uploadNotice');
+            uploadNotice.style.display = 'block';
+
             setTimeout(function () {
-                errorNotice.style.display = 'none';
+                uploadNotice.style.display = 'none';
             }, 3000);
-            return;
-        }
-        // maakt filereader
-        const reader = new FileReader();
 
-        // geeft aan dat het bestand is geupload
-        const uploadNotice = document.getElementById('uploadNotice');
-        uploadNotice.style.display = 'block';
+            fetch('http://127.0.0.1:8000/upload/', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Handle the success case
+                        return response.json();
+                    } else {
+                        // Handle the error case
+                        throw new Error(`Error! status: ${response.status}`);
+                    }
+                })
+                .then(data => {
+                    // Handle the response from the server, e.g., show a success message
+                    console.log(data);
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.error(error);
+                })
 
-        //haalt de melding weg na 3 seconden
-        setTimeout(function () {
-            uploadNotice.style.display = 'none';
-        }, 3000);
+                .catch(error => {
+                    // Handle any errors
+                    console.error(error);
+                });
 
-        // event listener als het bestand geladen is
-        reader.onload = function (e) {
-            //leest het bestand
-            const content = e.target.result;
-            //parst de csv
-            Papa.parse(content, {
-                header: true, // eerste row met headers
-                dynamicTyping: true, // veranderd de datatypes naar de verwachte types
-
-            });
-
-
-
-            // melding gaat weg na 3 sec
-
-
-            // input bestand word weggehaald zodat er een volgende ingevoerd kan worden
+            // Reset the file input field
             event.target.value = null;
-        };
+        }
     }
 }
