@@ -135,65 +135,36 @@ function updateSortIndicator(header, sortOrder) {
 getplayers().then(data => {
     generateTable(data);
 });
-const fileInput = document.getElementById('uploadbtn'); // Select the correct element by ID
 
-fileInput.addEventListener('change', handleFileSelect);
+async function uploadFile(file) {
+    const formData = new FormData();
+    formData.append('file', file);
 
+    try {
+        const response = await fetch('http://127.0.0.1:8000/upload/', {
+            method: 'POST',
+            body: formData,
+        });
 
-document.getElementById('uploadbtn').addEventListener('change', handleFileSelect);
-
-//const fileInput = document.getElementById('uploadbtn');
-
-fileInput.addEventListener('change', handleFileSelect);
-
-function handleFileSelect(event) {
-    const file = event.target.files[0];
-
-    if (file) {
-        // Handle the file selection and processing here
-        if (file.type !== 'text/csv') {
-            // Handle the file type error as you were doing before
-            // ...
-        } else {
-            const formData = new FormData();
-            formData.append('file', file);
-
-            const uploadNotice = document.getElementById('uploadNotice');
-            uploadNotice.style.display = 'block';
-
-            setTimeout(function () {
-                uploadNotice.style.display = 'none';
-            }, 3000);
-
-            fetch('http://127.0.0.1:8000/upload/', {
-                method: 'POST',
-                body: formData,
-            })
-                .then(response => {
-                    if (response.ok) {
-                        // Handle the success case
-                        return response.json();
-                    } else {
-                        // Handle the error case
-                        throw new Error(`Error! status: ${response.status}`);
-                    }
-                })
-                .then(data => {
-                    // Handle the response from the server, e.g., show a success message
-                    console.log(data);
-                })
-                .catch(error => {
-                    // Handle any errors
-                    console.error(error);
-                })
-
-                .catch(error => {
-                    // Handle any errors
-                    console.error(error);
-                });
-
-            // Reset the file input field
-            event.target.value = null;
+        if (!response.ok) {
+            throw new Error(`Error! Status: ${response.status}`);
         }
+
+        const data = await response.json();
+        console.log(data);
+
+        // After successful upload, update the table with new data
+        const newData = await getplayers();
+        generateTable(newData);
+    } catch (error) {
+        console.log(error);
     }
 }
+
+// Event listener for file input change
+document.getElementById('uploadbtn').addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        uploadFile(file);
+    }
+});
