@@ -3,20 +3,29 @@ from fastapi import FastAPI
 import json
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
-#dataframe maken van een csv bestand
-df = pd.read_csv('Main script/data.csv')
+CSV_PATH = Path("C:\\Users\\tjeer\\Documents\\Fm22 Scouting\\Fm22\\Api\\imports\\data.csv")
+EXPORTED_JSON_PATH = Path("C:\\Users\\tjeer\\Documents\\Fm22 Scouting\\Fm22\\Exports\\DataFiltered.json")
 
-#Not A Number of geen een waarde geven zodat het gefilterd kan worden
-df = df.replace("-", np.nan)
+def cleanse():
+    if not CSV_PATH.is_file():
+        print(f"File not found at path: {CSV_PATH}")
+    else:
+        # DataFrame creation and data processing (assuming the file exists)
+        df = pd.read_csv(CSV_PATH)
+        df = df.replace("-", np.nan)
+        df = df.dropna(subset=['Dlp'])
+        df = df.sort_values(['Dlp', 'xG'], ascending=[False, False])
+        df = df[['Naam', 'Club', 'Dlp', 'xG']]
+        df.to_json('C:\\Users\\tjeer\\Documents\\Fm22 Scouting\\Fm22\\Exports\\DataFiltered.json', orient='index')
+        print("Data filtered and exported successfully")
 
-#alles wat geen bruikbare data heeft eruit filteren
-df = df.dropna(subset=['Dlp'])
-#sorting van Goals en Subsort van xG
-df = df.sort_values(['Dlp','xG'], ascending=[False,False])
-#Naam,Club,Dlp en xG eruit filteren
-df = df[['Naam','Club','Dlp','xG']]
-#de gemanipuleerde dataframe omzetten naar een json bestand en opslaan in een export map
-df.to_json('Exports/DataFiltered.json', orient='index')
-#Bericht dat het filteren en exporteren is gelukt
-print("Data gefilterd en geëxporteerd")
+cleanse()
+
+
+
+
+
+
+

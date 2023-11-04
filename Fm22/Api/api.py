@@ -6,11 +6,29 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, UploadFile
 import json
+from subprocess import call
+import subprocess
 import io
 import shutil
 
 # Define the path to the "imports" subfolder
 UPLOAD_FOLDER = Path("..") / "Api" / "imports"
+path =  "C:/Users/tjeer/Documents/Fm22 Scouting/Fm22/Main Script/Main.py"
+script_path = str(path)
+file_path = Path("..") / "Exports" / "DataFiltered.json"
+
+
+
+
+import logging
+logging.basicConfig(filename='Main.log', level=logging.INFO)
+
+logging.info("CSV file saved successfully")
+
+logging.info("JSON data exported successfully")
+
+
+
 
 app = FastAPI()
 
@@ -31,14 +49,8 @@ app.add_middleware(
 def read_root():
     return {"Hello": "World"}
 
-# JSON response of the exported data at the /data URL
-@app.get("/data")
-def Data():
-    # Path to the filtered JSON file
-    file_path = Path("..") / "Exports" / "DataFiltered.json"
-    # Return JSON data
-    with open(file_path, "r") as file:
-        return json.load(file)
+
+
 
 @app.post("/upload/")
 async def upload_csv_file(file: UploadFile = File(...)):
@@ -47,17 +59,20 @@ async def upload_csv_file(file: UploadFile = File(...)):
         if not file.filename.endswith(".csv"):
             return JSONResponse(status_code=400, content={"error": "Invalid file type. Please select a CSV file."})
 
-        # Check if the file is empty
-        if not file.file:
-            return JSONResponse(status_code=400, content={"error": "Empty file. Please select a valid CSV file."})
+        # Set the desired filename (e.g., "data.csv")
+        new_filename = "data.csv"
 
-        # Save the file to the "imports" folder
-        file_path = os.path.join(UPLOAD_FOLDER, file.filename)
+        # Check if a file with the same name exists and delete it
+        existing_file_path = UPLOAD_FOLDER / new_filename
+        if existing_file_path.exists():
+            existing_file_path.unlink()
+
+        # Save the file to the "imports" folder with the new filename
+        file_path = UPLOAD_FOLDER / new_filename
 
         # Save the file
         with open(file_path, "wb") as f:
             shutil.copyfileobj(file.file, f)
-
 
         # Process the CSV file
         contents = await file.read()
@@ -67,8 +82,27 @@ async def upload_csv_file(file: UploadFile = File(...)):
         except pd.errors.EmptyDataError:
             return JSONResponse(status_code=400, content={"error": "No columns to parse from file."})
 
-        # Your processing logic goes here
-
         return {"message": "CSV file uploaded and processed successfully"}
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
+# JSON response of the exported data at the /data URL
+script_has_run = False  # A flag to track whether the script has been executed
+
+def run_script():
+    global script_has_run
+    if not script_has_run:
+        call(["python", str(script_path)])
+        script_has_run = True
+
+
+@app.get("/data")
+def get_data():
+    run_script()  # Call the script (once)
+
+    # Path to the filtered JSON file
+    with open(file_path, "r") as file:
+        data = json.load(file)
+    
+    return data
+

@@ -1,1 +1,95 @@
-{"2":{"Naam":"Erling Haaland","Club":"De Graafschap","Dlp":29.0,"xG":"19,98"},"0":{"Naam":"Lionel Messi","Club":"De Graafschap","Dlp":15.0,"xG":"10,04"},"1":{"Naam":"Neymar","Club":"De Graafschap","Dlp":8.0,"xG":"4,91"},"4":{"Naam":"Joshua Kimmich","Club":"De Graafschap","Dlp":6.0,"xG":"2,26"},"12":{"Naam":"Victor Osimhen","Club":"De Graafschap","Dlp":5.0,"xG":"4,02"},"10":{"Naam":"Alessandro Bastoni","Club":"De Graafschap","Dlp":4.0,"xG":"1,39"},"8":{"Naam":"Paul Pogba","Club":"De Graafschap","Dlp":3.0,"xG":"4,88"},"17":{"Naam":"Khvicha Kvaratskhelia","Club":"De Graafschap","Dlp":3.0,"xG":"3,53"},"7":{"Naam":"R\u00faben Dias","Club":"De Graafschap","Dlp":3.0,"xG":"2,22"},"5":{"Naam":"Bernardo Silva","Club":"De Graafschap","Dlp":2.0,"xG":"1,01"},"15":{"Naam":"Jo\u00e3o Cancelo","Club":"De Graafschap","Dlp":2.0,"xG":"0,92"},"14":{"Naam":"Rodri","Club":"De Graafschap","Dlp":1.0,"xG":"1,23"},"16":{"Naam":"\u0130lkay G\u00fcndogan","Club":"De Graafschap","Dlp":0.0,"xG":"2,42"},"9":{"Naam":"Leroy San\u00e9","Club":"De Graafschap","Dlp":0.0,"xG":"0,36"},"13":{"Naam":"Reece James","Club":"De Graafschap","Dlp":0.0,"xG":"0,28"},"11":{"Naam":"Jude Bellingham","Club":"De Graafschap","Dlp":0.0,"xG":"0,16"},"3":{"Naam":"Frenkie de Jong","Club":"De Graafschap","Dlp":0.0,"xG":"0,08"},"6":{"Naam":"Ederson","Club":"De Graafschap","Dlp":0.0,"xG":"0,00"}}
+{
+  "2": {
+    "Naam": "Erling Haaland",
+    "Club": "De Graafschap",
+    "Dlp": 29.0,
+    "xG": "19,98"
+  },
+  "0": {
+    "Naam": "Lionel Messi",
+    "Club": "De Graafschap",
+    "Dlp": 15.0,
+    "xG": "10,04"
+  },
+  "1": { "Naam": "Neymar", "Club": "De Graafschap", "Dlp": 8.0, "xG": "4,91" },
+  "4": {
+    "Naam": "Joshua Kimmich",
+    "Club": "De Graafschap",
+    "Dlp": 6.0,
+    "xG": "2,26"
+  },
+  "12": {
+    "Naam": "Victor Osimhen",
+    "Club": "De Graafschap",
+    "Dlp": 5.0,
+    "xG": "4,02"
+  },
+  "10": {
+    "Naam": "Alessandro Bastoni",
+    "Club": "De Graafschap",
+    "Dlp": 4.0,
+    "xG": "1,39"
+  },
+  "8": {
+    "Naam": "Paul Pogba",
+    "Club": "De Graafschap",
+    "Dlp": 3.0,
+    "xG": "4,88"
+  },
+  "17": {
+    "Naam": "Khvicha Kvaratskhelia",
+    "Club": "De Graafschap",
+    "Dlp": 3.0,
+    "xG": "3,53"
+  },
+  "7": {
+    "Naam": "R\u00faben Dias",
+    "Club": "De Graafschap",
+    "Dlp": 3.0,
+    "xG": "2,22"
+  },
+  "5": {
+    "Naam": "Bernardo Silva",
+    "Club": "De Graafschap",
+    "Dlp": 2.0,
+    "xG": "1,01"
+  },
+  "15": {
+    "Naam": "Jo\u00e3o Cancelo",
+    "Club": "De Graafschap",
+    "Dlp": 2.0,
+    "xG": "0,92"
+  },
+  "14": { "Naam": "Rodri", "Club": "De Graafschap", "Dlp": 1.0, "xG": "1,23" },
+  "16": {
+    "Naam": "\u0130lkay G\u00fcndogan",
+    "Club": "De Graafschap",
+    "Dlp": 0.0,
+    "xG": "2,42"
+  },
+  "9": {
+    "Naam": "Leroy San\u00e9",
+    "Club": "De Graafschap",
+    "Dlp": 0.0,
+    "xG": "0,36"
+  },
+  "13": {
+    "Naam": "Reece James",
+    "Club": "De Graafschap",
+    "Dlp": 0.0,
+    "xG": "0,28"
+  },
+  "11": {
+    "Naam": "Jude Bellingham",
+    "Club": "De Graafschap",
+    "Dlp": 0.0,
+    "xG": "0,16"
+  },
+  "3": {
+    "Naam": "Frenkie de Jong",
+    "Club": "De Graafschap",
+    "Dlp": 0.0,
+    "xG": "0,08"
+  },
+  "6": { "Naam": "Ederson", "Club": "De Graafschap", "Dlp": 0.0, "xG": "0,00" }
+}
