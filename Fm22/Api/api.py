@@ -91,7 +91,7 @@ def get_data():
         # roep de cleanse functie op als de geuploaden bestand nieuwer is
         cleanse()
 
-    # pad naar de json opslaan map
+    # pad naar de json opslaan map om json terug te sturen
     with open(EXPORTED_JSON_PATH, "r") as file:
         data = json.load(file)
     

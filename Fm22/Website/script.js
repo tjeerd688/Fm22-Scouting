@@ -135,12 +135,14 @@ function updateSortIndicator(header, sortOrder) {
 getplayers().then(data => {
     generateTable(data);
 });
-
+//upload bestand functie
 async function uploadFile(file) {
+    //maakt een form die we kunnen opsturen
     const formData = new FormData();
     formData.append('file', file);
 
     try {
+        //post request naar de api
         const response = await fetch('http://127.0.0.1:8000/upload/', {
             method: 'POST',
             body: formData,
@@ -149,11 +151,11 @@ async function uploadFile(file) {
         if (!response.ok) {
             throw new Error(`Error! Status: ${response.status}`);
         }
-
+        //parsed de data als json
         const data = await response.json();
         console.log(data);
 
-        // After successful upload, update the table with new data
+        // na het uploaden update de form met de nieuwe data
         const newData = await getplayers();
         generateTable(newData);
     } catch (error) {
@@ -161,7 +163,7 @@ async function uploadFile(file) {
     }
 }
 
-// Event listener for file input change
+// Event listener voor wanneer het bestand veranderd
 document.getElementById('uploadbtn').addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
