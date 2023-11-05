@@ -6,7 +6,6 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, UploadFile
 import json
-import io
 import shutil
 import uvicorn
 import logging
