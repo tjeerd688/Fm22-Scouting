@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ```python
 
 #in de API.py file line 15 
-EXPORTED_JSON_PATH = Path("hier uw JSON_Exports path.DataFiltered.json")
+EXPORTED_JSON_PATH = Path("hier uw \\JSON_Exports\\DataFiltered.json") path moet tussen folders \\ hebben
 
 
 ```
