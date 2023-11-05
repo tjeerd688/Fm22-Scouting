@@ -1,6 +1,7 @@
 # Football Manager filter
 
 dit is een programma die een csv uitleest en weergeeft op een website
+in de Test_CSV staan CSV bestanden in de juiste format voor het filteren
 
 ## Installation
 
@@ -11,11 +12,11 @@ pip install -r requirements.txt
 
 ```
 
-## in de API.py file 
+## in de API.py file
 
 ```python
 
-#in de API.py file line 15 
+#in de API.py file line 15
 EXPORTED_JSON_PATH = Path("hier uw \\JSON_Exports\\DataFiltered.json") path moet tussen folders \\ hebben
 
 
