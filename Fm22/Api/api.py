@@ -13,7 +13,7 @@ import logging
 
 # defineerd imports folder en json folder
 UPLOAD_FOLDER = Path("..") / "Api" / "imports"
-EXPORTED_JSON_PATH = Path("C:\\Users\\tjeer\\Documents\\Fm22 Scouting\\Fm22\\Exports\\DataFiltered.json")
+EXPORTED_JSON_PATH = Path("C:\\Users\\tjeer\\Documents\\Fm22 Scouting\\Fm22\\JSON_Exports\\DataFiltered.json")
 
 #maakt fastapi app
 app = FastAPI()
